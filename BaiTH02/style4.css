@@ -1,0 +1,179 @@
+/* =========================================
+   1. RESET & CƠ BẢN
+   ========================================= */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Đảm bảo kích thước card không bị sai khi có padding */
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. HEADER & MENU (Bài thực hành 4 & 3A)
+   ========================================= */
+/* Header cố định trên cùng khi cuộn */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Menu điều hướng Flexbox */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+    padding: 10px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Định dạng các link menu */
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 0 10px;
+    transition: all 0.3s ease; /* Tạo hiệu ứng chuyển màu mượt mà */
+}
+
+/* HIỆU ỨNG SÁNG LÊN KHI DI CHUỘT VÀO (Lỗi bạn vừa gặp) */
+nav a:hover {
+    color: #007bff; /* Đổi chữ sang màu xanh khi di chuột */
+    background-color: #f0f0f0; /* Thêm nền nhẹ */
+    border-radius: 5px;
+}
+
+/* =========================================
+   3. LAYOUT CARD (Bài thực hành 3A)
+   ========================================= */
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Ép đúng 3 cột trên Desktop */
+.card {
+    flex: 0 0 calc(33.33% - 20px); 
+    background: white;
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* =========================================
+   4. GALLERY GRID (Bài thực hành 3B)
+   ========================================= */
+.gallery {
+    display: grid;
+    /* Ép đúng 3 cột trên Desktop */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto 50px;
+    padding: 0 20px;
+}
+
+.item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+/* =========================================
+   5. NÚT SCROLL TO TOP (Bài thực hành 4)
+   ========================================= */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 24px;
+    z-index: 1100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.scroll-top:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+/* =========================================
+   6. RESPONSIVE (Dành cho Mobile & Tablet)
+   ========================================= */
+@media (max-width: 992px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* Tablet 2 cột */
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Menu xếp dọc */
+        align-items: center;
+    }
+    
+    .card {
+        flex: 0 0 100%; /* Card full chiều rộng */
+    }
+    
+    .gallery {
+        grid-template-columns: 1fr; /* Gallery 1 cột */
+    }
+}

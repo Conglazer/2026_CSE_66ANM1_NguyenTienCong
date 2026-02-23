@@ -1,0 +1,64 @@
+/* Cải tiến nav bằng Flexbox */
+nav {
+    display: flex; /* Kích hoạt Flexbox */
+    justify-content: center; /* Căn giữa các link theo chiều ngang */
+    align-items: center; /* Căn giữa các link theo chiều dọc */
+    gap: 20px; /* Khoảng cách giữa các link (thay cho margin) */
+    background: #f8f9fa;
+    padding: 15px;
+}
+
+/* Cải tiến .posts bằng Flexbox - Giải quyết triệt để lỗi nhảy hàng */
+.posts {
+    display: flex; /* Kích hoạt Flexbox cho vùng chứa card */
+    flex-wrap: wrap; /* Cho phép các card xuống hàng khi không đủ chỗ */
+    gap: 20px; /* Khoảng cách giữa các card */
+    justify-content: center; /* Căn giữa các card trong hàng */
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+/* Cải tiến .card bằng thuộc tính flex */
+.card {
+    /* Sử dụng flex: 0 0 ... để cố định 3 card trên 1 hàng */
+    /* Trừ đi 20px là để nhường chỗ cho thuộc tính gap: 20px ở trên */
+    flex: 0 0 calc(33.33% - 20px); 
+    
+    border: 1px solid #ddd;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Sắp xếp nội dung bên trong card theo chiều dọc */
+    justify-content: space-between;
+}
+
+/* Style cho nút bấm (giữ nguyên từ bài trước) */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    align-self: flex-start; /* Nút bấm không bị kéo dài hết chiều rộng card */
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* 3. Responsive: Khi màn hình < 768px (Điện thoại/Máy tính bảng nhỏ) */
+@media (max-width: 768px) {
+    .posts {
+        flex-direction: column; /* Chuyển từ hàng ngang sang hàng dọc */
+        padding: 0 20px;
+    }
+    
+    .card {
+        flex: 1 1 100%; /* Mỗi card chiếm toàn bộ chiều rộng màn hình */
+        width: 100%;
+        margin: 10px 0;
+    }
+}

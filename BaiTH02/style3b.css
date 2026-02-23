@@ -1,0 +1,32 @@
+/* --- PHẦN GALLERY --- */
+.gallery {
+    display: grid;
+    /* Sử dụng auto-fit kết hợp minmax để tự động nhảy hàng:
+       - 300px: Kích thước tối thiểu của 1 ô. 
+       - 1fr: Chiếm hết phần không gian còn lại.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* --- PHẦN ITEM --- */
+.item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px; /* Tăng độ cao một chút cho cân đối */
+    font-size: 2.5rem;
+    border-radius: 12px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-5px); /* Hiệu ứng bay lên khi di chuột */
+}
