@@ -1,0 +1,58 @@
+.contact-form-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    font-family: sans-serif;
+}
+
+/* Flexbox cho hàng ngang */
+.flex-row {
+    display: flex;
+    gap: 20px; /* Tạo khoảng cách giữa các ô */
+    margin-bottom: 15px;
+}
+
+/* Các ô trong hàng flex tự giãn đều */
+.flex-row input {
+    flex: 1; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Các nhóm chiếm 100% chiều rộng */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Giữ padding không làm tràn khung */
+}
+
+/* Dòng cuối: Nút bấm bên trái, Ghi chú bên phải */
+.footer-row {
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.send-btn {
+    background-color:#7dd3fc;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.note {
+    color: #666;
+    font-size: 14px;
+}
