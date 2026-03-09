@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Bảng Điểm Sinh Viên</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: #f4f4f4; }
+        .bg-warning { background-color: #ffffcc; } /* Màu vàng cho điểm < 5 */
+        .summary { margin: 15px 0; font-weight: bold; padding: 10px; background: #eef; border-radius: 5px; }
+        .input-group, .filter-group { margin-bottom: 15px; background: #fafafa; padding: 15px; border-radius: 5px; border: 1px solid #eee; }
+        input, select, button { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #28a745; color: white; cursor: pointer; border: none; }
+        button:hover { background-color: #218838; }
+        .btn-delete { background-color: #dc3545; }
+        .btn-delete:hover { background-color: #c82333; }
+    </style>
+</head>
+<body>
+
+    <h2>Quản lý Điểm Sinh Viên</h2>
+    
+    <div class="input-group">
+        <strong>Thêm mới:</strong>
+        Họ tên: <input type="text" id="txtName" placeholder="Nhập họ tên...">
+        Điểm: <input type="number" id="txtScore" step="0.1" placeholder="0-10">
+        <button id="btnAdd">Thêm vào danh sách</button>
+    </div>
+
+    <div class="filter-group">
+        <strong>Bộ lọc:</strong>
+        <input type="text" id="txtSearch" placeholder="Tìm tên sinh viên...">
+        
+        <select id="selRank">
+            <option value="Tất cả">Tất cả xếp loại</option>
+            <option value="Giỏi">Giỏi</option>
+            <option value="Khá">Khá</option>
+            <option value="Trung bình">Trung bình</option>
+            <option value="Yếu">Yếu</option>
+        </select>
+    </div>
+
+    <div class="summary" id="summaryArea">
+        Tổng số SV: 0 | Điểm trung bình: 0
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Họ tên</th>
+                <th id="sortScore" style="cursor: pointer; color: blue;">Điểm <span id="sortIcon">↕</span></th>
+                <th>Xếp loại</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="studentBody">
+            </tbody>
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
